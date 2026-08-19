@@ -1,0 +1,13 @@
+{
+  "name": "galo-do-tempo",
+  "private": true,
+  "workspaces": ["client", "server"],
+  "scripts": {
+    "dev": "concurrently -n API,WEB -c yellow,cyan \"npm run dev -w server\" \"npm run dev -w client\"",
+    "build": "npm run build -w server && npm run build -w client",
+    "lint": "npm run lint -w client && npm run lint -w server",
+    "start": "npm run start -w server"
+  },
+  "devDependencies": { "concurrently": "^9.2.1" },
+  "engines": { "node": ">=20.19.0" }
+}
