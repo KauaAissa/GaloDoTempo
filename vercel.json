@@ -1,5 +1,5 @@
 {
   "buildCommand": "npm run build -w client",
-  "installCommand": "npm install",
+  "installCommand": "rm -rf node_modules package-lock.json && npm install",
   "outputDirectory": "client/dist"
 }

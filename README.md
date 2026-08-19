@@ -116,17 +116,6 @@ npm start
 - Sirva `client/dist` em um host estático (Vercel, Netlify, Nginx, etc.) e execute a API com `npm start`.
 - Encaminhe as chamadas de `/api` para a API Express ou defina `VITE_API_URL` no build do frontend apontando para a URL pública da API.
 
-## ▲ Deploy único na Vercel
-
-O projeto também pode ser hospedado inteiramente na Vercel: o frontend vira o build estático e a pasta `api/` (na raiz) é publicada como Serverless Functions no mesmo domínio, reaproveitando a lógica de `server/src/weather.ts` — sem precisar de CORS nem de um host separado para a API.
-
-1. Importe o repositório na Vercel mantendo o **Root Directory** como a raiz do projeto (não `client`).
-2. A Vercel usa automaticamente as configurações de [vercel.json](vercel.json) (`buildCommand`, `outputDirectory`) e detecta a pasta `api/` como funções serverless.
-3. Configure as variáveis de ambiente do projeto na Vercel: `THINGSPEAK_CHANNEL_ID` e, se necessário, `THINGSPEAK_READ_API_KEY`.
-4. Deploy. O frontend passa a chamar `/api/weather` e `/api/health` no mesmo domínio automaticamente (não é preciso definir `VITE_API_URL`).
-
-O `server/` (Express) continua existindo para o desenvolvimento local via `npm run dev`.
-
 ## 🧪 Qualidade
 
 ```bash
